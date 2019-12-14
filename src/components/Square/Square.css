@@ -1,0 +1,13 @@
+.square-wrapper {
+  border: solid 1px black;
+  height: auto;
+  text-align: center;
+  width: auto;
+  position: relative;
+}
+
+.square {
+  text-align: center;
+  height: 50px;
+  width: 50px;
+}

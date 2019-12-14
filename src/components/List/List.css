@@ -1,0 +1,8 @@
+.list-wrapper {
+  height: 1000px;
+  width: 300px;
+  float: left;
+  margin: 0;
+  left: 0;
+  border: solid 1px black;
+}

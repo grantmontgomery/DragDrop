@@ -1,0 +1,23 @@
+.grid-wrapper {
+  height: 1000px;
+  width: 1000px;
+  border: 1px solid black;
+  margin: 0;
+  float: right;
+  margin: 0;
+  position: absolute;
+  right: 200px;
+  overflow: scroll;
+}
+
+.grid-slider {
+  width: 1600px;
+  height: 1000px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+  left: 0;
+}
