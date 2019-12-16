@@ -74,7 +74,18 @@ class Piece extends Component {
     );
   };
   render() {
-    return <div className="piece-wrapper"></div>;
+    const { translateX, translateY, isDragging } = this.state;
+    return (
+      <div
+        className="piece-wrapper"
+        onMouseDown={this.handleMouseDown}
+        style={{
+          transform: `translate(${translateX}px, ${translateY}px)`,
+          cursor: `${isDragging ? "grabbing" : "grab"}`,
+          zIndex: `${isDragging ? 1000 : 1}`
+        }}
+      ></div>
+    );
   }
 }
 
