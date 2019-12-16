@@ -36,7 +36,11 @@ class Piece extends Component {
   handleMouseMove = ({ clientX, clientY }) => {
     const { isDragging } = this.state;
     const { onDrag } = this.props;
+    const { draggingElement } = this.state;
+    draggingElement.hidden = true;
     const elemBelow = document.elementFromPoint(clientX, clientY);
+    draggingElement.hidden = false;
+
     this.setState({ droppable: elemBelow });
 
     if (!isDragging) {
@@ -69,7 +73,9 @@ class Piece extends Component {
         originalY: 0,
         lastTranslateX: this.state.translateX,
         lastTranslateY: this.state.translateY,
-        isDragging: false
+        isDragging: false,
+        draggingElement: null,
+        droppable: null
       },
       () => {
         if (this.props.onDragEnd) {
@@ -79,7 +85,8 @@ class Piece extends Component {
     );
   };
   render() {
-    const { translateX, translateY, isDragging } = this.state;
+    const { translateX, translateY, isDragging, droppable } = this.state;
+    console.log(droppable);
     return (
       <div
         className="piece-wrapper"
