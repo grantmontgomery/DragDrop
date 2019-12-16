@@ -25,79 +25,89 @@ class Piece extends Component {
   handleMouseDown = ({ target, clientX, clientY }) => {
     window.addEventListener("mousemove", this.handleMouseMove);
     window.addEventListener("mouseup", this.handleMouseUp);
-    this.setState({ draggingElement: target });
-    if (this.props.onDragStart) {
-      this.props.onDragStart();
-    }
-
-    this.setState({ isDragging: true, originalX: clientX, originalY: clientY });
+    this.setState({
+      isDragging: true,
+      originalX: clientX,
+      originalY: clientY,
+      draggingElement: target
+    });
   };
 
   handleMouseMove = ({ clientX, clientY }) => {
     const { isDragging } = this.state;
-    const { onDrag } = this.props;
     const { draggingElement } = this.state;
-    draggingElement.hidden = true;
-    const elemBelow = document.elementFromPoint(clientX, clientY);
-    draggingElement.hidden = false;
 
-    this.setState({ droppable: elemBelow });
-
-    if (!isDragging) {
-      return;
+    if (isDragging) {
+      draggingElement.hidden = true;
+      const elemBelow = document.elementFromPoint(clientX, clientY);
+      draggingElement.hidden = false;
+      this.setState(prevState => ({
+        droppable: elemBelow,
+        translateX: clientX + prevState.lastTranslateX - prevState.originalX,
+        translateY: clientY + prevState.lastTranslateY - prevState.originalY
+      }));
     }
-
-    this.setState(
-      prevState => ({
-        translateX: clientX - prevState.originalX + prevState.lastTranslateX,
-        translateY: clientY - prevState.originalY + prevState.lastTranslateY
-      }),
-      () => {
-        if (onDrag) {
-          onDrag({
-            translateX: this.state.translateX,
-            translateY: this.state.translateY
-          });
-        }
-      }
-    );
   };
 
   handleMouseUp = () => {
+    const { droppable, draggingElement } = this.state;
     window.removeEventListener("mousemove", this.handleMouseMove);
     window.removeEventListener("mouseup", this.handleMouseUp);
-
-    this.setState(
-      {
-        originalX: 0,
-        originalY: 0,
-        lastTranslateX: this.state.translateX,
-        lastTranslateY: this.state.translateY,
-        isDragging: false,
-        draggingElement: null,
-        droppable: null
-      },
-      () => {
-        if (this.props.onDragEnd) {
-          this.props.onDragEnd();
-        }
-      }
-    );
+    droppable.append(draggingElement);
+    this.setState({
+      // originalX: 0,
+      // originalY: 0,
+      // lastTranslateX: this.state.translateX,
+      // lastTranslateY: this.state.translateY,
+      // isDragging: false,
+      // draggingElement: null,
+      // droppable: null
+      translateX: 0,
+      translateY: 0,
+      originalX: 0,
+      originalY: 0,
+      lastTranslateX: 0,
+      lastTranslateY: 0,
+      isDragging: false,
+      draggingElement: null,
+      droppable: null
+    });
   };
+
+  isDragging({ isDragging, translateX, translateY, droppable }) {
+    if (isDragging) {
+      return {
+        transform: `translate(${translateX}px, ${translateY}px)`,
+        cursor: "grabbing",
+        position: "absolute",
+        zIndex: 1000,
+        transition: "none"
+      };
+    } else {
+      return {
+        transform: "translate(0, 0)",
+        position: "relative",
+        cursor: "grab",
+        zIndex: 1,
+        transition: "all 500ms"
+      };
+    }
+  }
+
   render() {
-    const { translateX, translateY, isDragging, droppable } = this.state;
-    console.log(droppable);
     return (
       <div
         className="piece-wrapper"
         onMouseDown={this.handleMouseDown}
-        style={{
-          transform: `translate(${translateX}px, ${translateY}px)`,
-          cursor: `${isDragging ? "grabbing" : "grab"}`,
-          zIndex: `${isDragging ? 1000 : 1}`,
-          transition: `${isDragging ? "none" : "all 500ms"}`
+        style={
+          this.isDragging(this.state)
+
+          // transform: `translate(${translateX}px, ${translateY}px)`,
+          // cursor: `${isDragging ? "grabbing" : "grab"}`,
+          // zIndex: `${isDragging ? 1000 : 1}`,
+          // transition: `${isDragging ? "none" : "all 500ms"}`
           // position: `${isDragging ? "absolute" : "relative"}`
-        }}
+        }
       ></div>
     );
   }
