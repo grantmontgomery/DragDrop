@@ -2,9 +2,17 @@ import React, { Component } from "react";
 import "./Square.css";
 
 class Square extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  onMouseOver = event => {
+    console.log(event);
+  };
+
   render() {
-    return <div className="square-wrapper"></div>;
+    return <div className="square-wrapper">{this.props.children}</div>;
   }
 }
 

@@ -8,6 +8,7 @@
   position: absolute;
   right: 200px;
   overflow: scroll;
+  z-index: -1;
 }
 
 .grid-slider {

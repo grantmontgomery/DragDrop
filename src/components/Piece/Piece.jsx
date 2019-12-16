@@ -11,7 +11,9 @@ class Piece extends Component {
       translateX: 0,
       translateY: 0,
       lastTranslateX: 0,
-      lastTranslateY: 0
+      lastTranslateY: 0,
+      draggingElement: null,
+      droppable: null
     };
   }
 
@@ -20,9 +22,10 @@ class Piece extends Component {
     window.removeEventListener("mouseup", this.handleMouseUp);
   }
 
-  handleMouseDown = ({ clientX, clientY }) => {
+  handleMouseDown = ({ target, clientX, clientY }) => {
     window.addEventListener("mousemove", this.handleMouseMove);
     window.addEventListener("mouseup", this.handleMouseUp);
+    this.setState({ draggingElement: target });
     if (this.props.onDragStart) {
       this.props.onDragStart();
     }
@@ -33,6 +36,8 @@ class Piece extends Component {
   handleMouseMove = ({ clientX, clientY }) => {
     const { isDragging } = this.state;
     const { onDrag } = this.props;
+    const elemBelow = document.elementFromPoint(clientX, clientY);
+    this.setState({ droppable: elemBelow });
 
     if (!isDragging) {
       return;
@@ -82,7 +87,9 @@ class Piece extends Component {
         style={{
           transform: `translate(${translateX}px, ${translateY}px)`,
           cursor: `${isDragging ? "grabbing" : "grab"}`,
-          zIndex: `${isDragging ? 1000 : 1}`
+          zIndex: `${isDragging ? 1000 : 1}`,
+          transition: `${isDragging ? "none" : "all 500ms"}`
+          // position: `${isDragging ? "absolute" : "relative"}`
         }}
       ></div>
     );
