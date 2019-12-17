@@ -84,7 +84,7 @@ class Piece extends Component {
         position: "relative",
         cursor: "grab",
         zIndex: 1,
-        transition: "transform linear 500ms, position linear 400ms"
+        transition: "transform 500ms"
       };
     }
   }
