@@ -94,15 +94,7 @@ class Piece extends Component {
       <div
         className="piece-wrapper"
         onMouseDown={this.handleMouseDown}
-        style={
-          this.isDragging(this.state)
-
-          // transform: `translate(${translateX}px, ${translateY}px)`,
-          // cursor: `${isDragging ? "grabbing" : "grab"}`,
-          // zIndex: `${isDragging ? 1000 : 1}`,
-          // transition: `${isDragging ? "none" : "all 500ms"}`
-          // position: `${isDragging ? "absolute" : "relative"}`
-        }
+        style={this.isDragging(this.state)}
       ></div>
     );
   }
