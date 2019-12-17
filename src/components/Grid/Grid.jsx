@@ -8,6 +8,15 @@ class Grid extends Component {
     return (
       <div className="grid-wrapper">
         <div className="grid-slider">
+          <div className="date-header"></div>
+          <div className="date-hour"></div>
+          <div className="date-hour"></div>
+          <div className="date-hour"></div>
+          <div className="date-hour"></div>
+          <div className="date-hour"></div>
+          <div className="date-hour"></div>
+          <div className="date-hour"></div>
+          {/* <Square></Square>
           <Square></Square>
           <Square></Square>
           <Square></Square>
@@ -64,22 +73,7 @@ class Grid extends Component {
           <Square></Square>
           <Square></Square>
           <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
+          <Square></Square> */}
         </div>
       </div>
     );

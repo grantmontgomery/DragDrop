@@ -11,14 +11,22 @@
   z-index: -1;
 }
 
+.date-header {
+  grid-column-start: 1;
+  grid-column-end: 9;
+}
+
+.date-hour {
+  width: auto;
+  height: auto;
+  grid-area: subheaders;
+}
+
 .grid-slider {
   width: 1600px;
   height: 1000px;
   position: relative;
   display: grid;
-  grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
-  grid-column-gap: 0;
-  grid-row-gap: 0;
-  grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+  grid-template-columns: ;
   left: 0;
 }

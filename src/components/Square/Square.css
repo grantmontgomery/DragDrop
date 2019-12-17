@@ -1,5 +1,7 @@
 .square-wrapper {
-  border: solid 1px black;
+  border-left: solid 1px rgb(215, 215, 215);
+  border-right: solid 1px rgb(215, 215, 215);
+  border-bottom: dashed 1px rgb(179, 179, 179);
   height: auto;
   text-align: center;
   width: auto;
