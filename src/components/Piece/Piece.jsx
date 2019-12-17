@@ -6,6 +6,7 @@ class Piece extends Component {
     super(props);
     this.state = {
       isDragging: false,
+      isMoving: false,
       originalX: 0,
       originalY: 0,
       translateX: 0,
@@ -55,14 +56,8 @@ class Piece extends Component {
     window.removeEventListener("mouseup", this.handleMouseUp);
     droppable.append(draggingElement);
     this.setState({
-      // originalX: 0,
-      // originalY: 0,
-      // lastTranslateX: this.state.translateX,
-      // lastTranslateY: this.state.translateY,
-      // isDragging: false,
-      // draggingElement: null,
-      // droppable: null
       translateX: 0,
+      isMoving: false,
       translateY: 0,
       originalX: 0,
       originalY: 0,
@@ -74,12 +69,12 @@ class Piece extends Component {
     });
   };
 
-  isDragging({ isDragging, translateX, translateY, droppable }) {
+  isDragging({ isDragging, translateX, isMoving, translateY }) {
     if (isDragging) {
       return {
         transform: `translate(${translateX}px, ${translateY}px)`,
         cursor: "grabbing",
-        position: "absolute",
+        position: `${isMoving ? "absolute" : "relative"}`,
         zIndex: 1000,
         transition: "none"
       };
@@ -89,7 +84,7 @@ class Piece extends Component {
         position: "relative",
         cursor: "grab",
         zIndex: 1,
-        transition: "all 500ms"
+        transition: "transform linear 500ms, position linear 400ms"
       };
     }
   }
