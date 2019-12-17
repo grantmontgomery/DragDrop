@@ -12,8 +12,12 @@
 }
 
 .date-header {
-  grid-column-start: 1;
-  grid-column-end: 9;
+  grid-area: header;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 .date-hour {
@@ -27,6 +31,24 @@
   height: 1000px;
   position: relative;
   display: grid;
-  grid-template-columns: ;
+  grid-template-columns: 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25%;
+  grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+  grid-template-areas:
+    "header header header header header header header header header header header header header header header header"
+    "square square square square square square square square square square square square square square square square"
+    "square square square square square square square square square square square square square square square square"
+    "square square square square square square square square square square square square square square square square"
+    "square square square square square square square square square square square square square square square square"
+    "square square square square square square square square square square square square square square square square"
+    "square square square square square square square square square square square square square square square square"
+    "square square square square square square square square square square square square square square square square";
   left: 0;
+}
+
+.hours {
+  position: relative;
+  top: 20px;
+  display: inline-block;
+  margin-left: 6.25%;
+  margin-right: 6.25%;
 }

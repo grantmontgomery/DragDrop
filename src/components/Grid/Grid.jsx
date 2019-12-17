@@ -8,72 +8,130 @@ class Grid extends Component {
     return (
       <div className="grid-wrapper">
         <div className="grid-slider">
-          <div className="date-header"></div>
-          <div className="date-hour"></div>
-          <div className="date-hour"></div>
-          <div className="date-hour"></div>
-          <div className="date-hour"></div>
-          <div className="date-hour"></div>
-          <div className="date-hour"></div>
-          <div className="date-hour"></div>
-          {/* <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square>
-          <Square></Square> */}
+          <div className="date-header">
+            <span className="hours">7:00pm</span>
+            <span className="hours">8:00pm</span>
+            <span className="hours">9:00pm</span>
+            <span className="hours">10:00pm</span>
+            <span className="hours">11:00pm</span>
+            <span className="hours">12:00am</span>
+            <span className="hours">1:00am</span>
+            <span className="hours">2:00am</span>
+          </div>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
+          <Square className="square"></Square>
         </div>
       </div>
     );
