@@ -10,22 +10,25 @@ class Grid extends Component {
         <div className="grid-slider">
           <div className="date-header">
             <div className="hours-wrapper">
-              <span className="hours">8:00pm</span>
+              <p>8:00pm</p>
             </div>
             <div className="hours-wrapper">
-              <span className="hours">9:00pm</span>
+              <p>9:00pm</p>
             </div>
             <div className="hours-wrapper">
-              <span className="hours">10:00pm</span>
+              <p>10:00pm</p>
             </div>
             <div className="hours-wrapper">
-              <span className="hours">11:00pm</span>
+              <p>11:00pm</p>
             </div>
             <div className="hours-wrapper">
-              <span className="hours">12:00am</span>
+              <p>12:00pm</p>
             </div>
             <div className="hours-wrapper">
-              <span className="hours">1:00am</span>
+              <p>1:00am</p>
+            </div>
+            <div className="hours-wrapper">
+              <p>2:00am</p>
             </div>
           </div>
           <Square className="square"></Square>
