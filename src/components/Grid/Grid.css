@@ -45,10 +45,15 @@
   left: 0;
 }
 
-.hours {
+.hours-wrapper {
   position: relative;
   top: 20px;
+  position: absolute;
+
   display: inline-block;
   margin-left: 6.25%;
   margin-right: 6.25%;
+}
+
+.hours {
 }
