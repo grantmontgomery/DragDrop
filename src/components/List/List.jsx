@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Piece } from "../Piece";
+import { NewPart } from "../NewPart";
 import "./List.css";
 
 class List extends Component {
@@ -12,7 +13,17 @@ class List extends Component {
 
   handleClick = event => {
     event.preventDefault();
-    this.setState({ input: true });
+    const { input } = this.state;
+    !input ? this.setState({ input: true }) : this.setState({ input: false });
+  };
+
+  renderNewInput = () => {
+    const { input } = this.state;
+    if (input) {
+      return <NewPart></NewPart>;
+    } else {
+      return;
+    }
   };
 
   render() {
@@ -22,6 +33,7 @@ class List extends Component {
           <span>Items</span>
           <button onClick={this.handleClick}>+</button>
         </div>
+        {this.renderNewInput()}
         <Piece></Piece>
         <Piece></Piece>
       </div>
