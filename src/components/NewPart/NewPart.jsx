@@ -25,7 +25,7 @@ class NewPart extends Component {
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     const { newPart, color } = this.state;
     // newpart && color ?
