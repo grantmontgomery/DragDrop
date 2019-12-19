@@ -2,7 +2,7 @@
   width: 250px;
   margin-right: auto;
   margin-left: auto;
-  height: 100px;
+  height: 125px;
   border: solid 1px black;
   overflow: hidden;
   z-index: 1001;
@@ -54,4 +54,12 @@
 
 .black {
   background: rgb(30, 30, 30);
+}
+
+.create-button {
+  position: relative;
+  bottom: -20px;
+  right: 5px;
+  float: left;
+  left: 180px;
 }

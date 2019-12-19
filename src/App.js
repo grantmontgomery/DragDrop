@@ -9,9 +9,16 @@ class App extends Component {
     this.state = {
       DragStart: this.DragStart,
       isDragging: this.isDragging,
-      DragEnd: this.DragEnd
+      DragEnd: this.DragEnd,
+      newPiece: { id: null, value: null, color: null },
+      pieces: []
     };
   }
+
+  handleSubmit = (event, thestate) => {
+    event.preventDefault();
+    const { newPart, color } = thestate;
+  };
 
   render() {
     return (

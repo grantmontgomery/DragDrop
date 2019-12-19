@@ -7,7 +7,8 @@ class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: false
+      input: false,
+      pieces: []
     };
   }
 
@@ -27,6 +28,7 @@ class List extends Component {
   };
 
   render() {
+    const { pieces } = this.state;
     return (
       <div className="list-wrapper">
         <div className="list-title">
@@ -34,8 +36,11 @@ class List extends Component {
           <button onClick={this.handleClick}>+</button>
         </div>
         {this.renderNewInput()}
-        <Piece></Piece>
-        <Piece></Piece>
+        {pieces.map(piece => (
+          <Piece></Piece>
+        ))}
+        {/* <Piece></Piece>
+        <Piece></Piece> */}
       </div>
     );
   }
