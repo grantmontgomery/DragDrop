@@ -70,13 +70,15 @@ class Piece extends Component {
   };
 
   isDragging({ isDragging, translateX, isMoving, translateY }) {
+    const { color } = this.props;
     if (isDragging) {
       return {
         transform: `translate(${translateX}px, ${translateY}px)`,
         cursor: "grabbing",
         position: `${isMoving ? "absolute" : "relative"}`,
         zIndex: 1000,
-        transition: "none"
+        transition: "none",
+        background: `rgb${color}`
       };
     } else {
       return {
@@ -84,18 +86,18 @@ class Piece extends Component {
         position: "relative",
         cursor: "grab",
         zIndex: 1,
-        transition: "transform 500ms"
+        transition: "transform 500ms",
+        background: `rgb${color}`
       };
     }
   }
 
   render() {
-    const { color, value } = this.props;
+    const { value } = this.props;
     console.log(this.props);
     return (
       <div
         className="piece-wrapper"
-        style={{ background: color }}
         value={value}
         onMouseDown={this.handleMouseDown}
         style={this.isDragging(this.state)}

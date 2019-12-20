@@ -53,37 +53,37 @@ class NewPart extends Component {
               className="color-picker red"
               onClick={this.changeColor}
               name="color"
-              value="rgb(233, 53, 53)"
+              value="(233, 53, 53)"
             ></div>
             <div
               className="color-picker orange"
               onClick={this.changeColor}
               name="color"
-              value="rgb(255, 187, 0)"
+              value="(255, 187, 0)"
             ></div>
             <div
               className="color-picker green"
               onClick={this.changeColor}
               name="color"
-              value="rgb(1, 192, 87)"
+              value="(1, 192, 87)"
             ></div>
             <div
               className="color-picker blue"
               onClick={this.changeColor}
               name="color"
-              value="rgb(0, 162, 255)"
+              value="(0, 162, 255)"
             ></div>
             <div
               className="color-picker purple"
               onClick={this.changeColor}
               name="color"
-              value="rgb(169, 43, 241)"
+              value="(169, 43, 241)"
             ></div>
             <div
               className="color-picker black"
               onClick={this.changeColor}
               name="color"
-              value="rgb(30, 30, 30)"
+              value="(30, 30, 30)"
             ></div>
           </div>
           <button
