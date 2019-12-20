@@ -7,9 +7,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      DragStart: this.DragStart,
-      isDragging: this.isDragging,
-      DragEnd: this.DragEnd,
       newPiece: { id: null, value: null, color: null },
       pieces: []
     };

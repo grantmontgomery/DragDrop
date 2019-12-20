@@ -7,14 +7,14 @@ class NewPart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newPart: "",
+      newPieceValue: "",
       color: "red"
     };
   }
 
   handleUpdate = event => {
     const { target } = event;
-    this.setState({ newPart: target.value });
+    this.setState({ newPieceValue: target.value });
   };
 
   changeColor = event => {
@@ -25,25 +25,19 @@ class NewPart extends Component {
     });
   };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const { newPart, color } = this.state;
-    // newpart && color ?
-  };
-
   render() {
-    const { newPart } = this.state;
-    console.log(this.state);
+    const { newPieceValue } = this.state;
+    const { handleSubmit } = this.props;
     return (
       <div className="newpart-wrapper">
         <span>Add something!</span>
         <br />
-        <form action="" onSubmit={this.handleSubmit}>
+        <form action="" onSubmit={e => handleSubmit(e, this.state)}>
           <label htmlFor="">What?</label>
           <input
             type="text"
             name="activity"
-            value={newPart}
+            value={newPieceValue}
             onChange={this.handleUpdate}
           />
           <br />
@@ -92,7 +86,10 @@ class NewPart extends Component {
               value="rgb(30, 30, 30)"
             ></div>
           </div>
-          <button className="create-button" onClick={this.handleSubmit}>
+          <button
+            className="create-button"
+            onClick={e => handleSubmit(e, this.state)}
+          >
             Create
           </button>
         </form>

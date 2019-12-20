@@ -90,9 +90,13 @@ class Piece extends Component {
   }
 
   render() {
+    const { color, value } = this.props;
+    console.log(this.props);
     return (
       <div
         className="piece-wrapper"
+        style={{ background: color }}
+        value={value}
         onMouseDown={this.handleMouseDown}
         style={this.isDragging(this.state)}
       ></div>

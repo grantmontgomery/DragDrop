@@ -12,6 +12,12 @@ class List extends Component {
     };
   }
 
+  handleSubmit = (event, newPiece) => {
+    const { pieces } = this.state;
+    event.preventDefault();
+    this.setState({ pieces: [...pieces, newPiece] });
+  };
+
   handleClick = event => {
     event.preventDefault();
     const { input } = this.state;
@@ -21,13 +27,14 @@ class List extends Component {
   renderNewInput = () => {
     const { input } = this.state;
     if (input) {
-      return <NewPart></NewPart>;
+      return <NewPart handleSubmit={this.handleSubmit}></NewPart>;
     } else {
       return;
     }
   };
 
   render() {
+    console.log(this.state);
     const { pieces } = this.state;
     return (
       <div className="list-wrapper">
@@ -37,10 +44,12 @@ class List extends Component {
         </div>
         {this.renderNewInput()}
         {pieces.map(piece => (
-          <Piece></Piece>
+          <Piece
+            key={Math.floor(Math.random() * Math.floor(100))}
+            color={piece.color}
+            value={piece.newPieceValue}
+          ></Piece>
         ))}
-        {/* <Piece></Piece>
-        <Piece></Piece> */}
       </div>
     );
   }
