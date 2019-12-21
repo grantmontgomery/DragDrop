@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { CheckMark } from "../Icons/checkmark";
@@ -10,7 +11,7 @@ class NewPart extends Component {
     this.state = {
       newPieceValue: "",
       color: "red",
-      selected: "",
+      selected: null,
       CheckMark: null
     };
   }
@@ -24,12 +25,21 @@ class NewPart extends Component {
 
   changeColor = event => {
     event.preventDefault();
+    const colorSelectors = document.getElementsByClassName("color-picker");
     const { target } = event;
-
     this.setState({
       color: target.getAttribute("value"),
-      selected: target.getAttribute("name")
+      selected: target
     });
+
+    for (let i = 0; i < colorSelectors.length; i++) {
+      if (target === colorSelectors[i]) {
+        ReactDOM.render(<CheckMark></CheckMark>, colorSelectors[i]);
+        console.log(colorSelectors[i].children);
+      } else {
+        colorSelectors[i].innerHTML = "";
+      }
+    }
   };
 
   render() {
@@ -61,9 +71,7 @@ class NewPart extends Component {
               onClick={this.changeColor}
               name="red"
               value="(233, 53, 53)"
-            >
-              <CheckMark></CheckMark>
-            </div>
+            ></div>
             <div
               className="color-picker orange"
               onClick={this.changeColor}
