@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { CheckMark } from "../Icons/checkmark";
 import "./NewPart.css";
 
 class NewPart extends Component {
@@ -16,7 +17,9 @@ class NewPart extends Component {
     const { target } = event;
     this.setState({ newPieceValue: target.value });
   };
-
+  componentDidMount() {
+    console.log(document.getElementById("path").getTotalLength());
+  }
   changeColor = event => {
     event.preventDefault();
     const { target } = event;
@@ -24,6 +27,8 @@ class NewPart extends Component {
       [target.getAttribute("name")]: target.getAttribute("value")
     });
   };
+
+  isSelected = () => {};
 
   render() {
     const { newPieceValue } = this.state;
@@ -93,6 +98,7 @@ class NewPart extends Component {
             Create
           </button>
         </form>
+        <CheckMark />
       </div>
     );
   }

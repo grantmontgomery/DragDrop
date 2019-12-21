@@ -34,7 +34,6 @@ class List extends Component {
   };
 
   render() {
-    console.log(this.state);
     const { pieces } = this.state;
     return (
       <div className="list-wrapper">
