@@ -9,7 +9,9 @@ class NewPart extends Component {
     super(props);
     this.state = {
       newPieceValue: "",
-      color: "red"
+      color: "red",
+      selected: "",
+      CheckMark: null
     };
   }
 
@@ -17,18 +19,20 @@ class NewPart extends Component {
     const { target } = event;
     this.setState({ newPieceValue: target.value });
   };
-  componentDidMount() {
-    console.log(document.getElementById("path").getTotalLength());
-  }
+
+  componentDidMount() {}
+
   changeColor = event => {
     event.preventDefault();
     const { target } = event;
-    this.setState({
-      [target.getAttribute("name")]: target.getAttribute("value")
-    });
-  };
 
-  isSelected = () => {};
+    this.setState({
+      color: target.getAttribute("value"),
+      selected: target.getAttribute("name")
+    });
+
+    target.append(this.state.CheckMark);
+  };
 
   render() {
     const { newPieceValue } = this.state;
@@ -57,39 +61,57 @@ class NewPart extends Component {
             <div
               className="color-picker red"
               onClick={this.changeColor}
-              name="color"
+              name="red"
               value="(233, 53, 53)"
-            ></div>
+            >
+              <CheckMark></CheckMark>
+              {this.props.children}
+            </div>
             <div
               className="color-picker orange"
               onClick={this.changeColor}
-              name="color"
+              name="orange"
               value="(255, 187, 0)"
-            ></div>
+            >
+              {" "}
+              {this.props.children}
+            </div>
             <div
               className="color-picker green"
               onClick={this.changeColor}
-              name="color"
+              name="green"
               value="(1, 192, 87)"
-            ></div>
+            >
+              {" "}
+              {this.props.children}
+            </div>
             <div
               className="color-picker blue"
               onClick={this.changeColor}
-              name="color"
+              name="blue"
               value="(0, 162, 255)"
-            ></div>
+            >
+              {" "}
+              {this.props.children}
+            </div>
             <div
               className="color-picker purple"
               onClick={this.changeColor}
-              name="color"
+              name="purple"
               value="(169, 43, 241)"
-            ></div>
+            >
+              {" "}
+              {this.props.children}
+            </div>
             <div
               className="color-picker black"
               onClick={this.changeColor}
-              name="color"
+              name="black"
               value="(30, 30, 30)"
-            ></div>
+            >
+              {" "}
+              {this.props.children}
+            </div>
           </div>
           <button
             className="create-button"
@@ -98,7 +120,6 @@ class NewPart extends Component {
             Create
           </button>
         </form>
-        <CheckMark />
       </div>
     );
   }
