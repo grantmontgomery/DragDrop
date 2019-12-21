@@ -30,8 +30,6 @@ class NewPart extends Component {
       color: target.getAttribute("value"),
       selected: target.getAttribute("name")
     });
-
-    target.append(this.state.CheckMark);
   };
 
   render() {
@@ -65,53 +63,37 @@ class NewPart extends Component {
               value="(233, 53, 53)"
             >
               <CheckMark></CheckMark>
-              {this.props.children}
             </div>
             <div
               className="color-picker orange"
               onClick={this.changeColor}
               name="orange"
               value="(255, 187, 0)"
-            >
-              {" "}
-              {this.props.children}
-            </div>
+            ></div>
             <div
               className="color-picker green"
               onClick={this.changeColor}
               name="green"
               value="(1, 192, 87)"
-            >
-              {" "}
-              {this.props.children}
-            </div>
+            ></div>
             <div
               className="color-picker blue"
               onClick={this.changeColor}
               name="blue"
               value="(0, 162, 255)"
-            >
-              {" "}
-              {this.props.children}
-            </div>
+            ></div>
             <div
               className="color-picker purple"
               onClick={this.changeColor}
               name="purple"
               value="(169, 43, 241)"
-            >
-              {" "}
-              {this.props.children}
-            </div>
+            ></div>
             <div
               className="color-picker black"
               onClick={this.changeColor}
               name="black"
               value="(30, 30, 30)"
-            >
-              {" "}
-              {this.props.children}
-            </div>
+            ></div>
           </div>
           <button
             className="create-button"
