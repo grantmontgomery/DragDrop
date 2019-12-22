@@ -21,8 +21,10 @@ class NewPart extends Component {
     this.setState({ newPieceValue: target.value });
   };
 
-  componentDidMount() {}
-
+  componentDidMount() {
+    const colorSelectors = document.getElementsByClassName("color-picker");
+    ReactDOM.render(<CheckMark />, colorSelectors[0]);
+  }
   changeColor = event => {
     event.preventDefault();
     const colorSelectors = document.getElementsByClassName("color-picker");
