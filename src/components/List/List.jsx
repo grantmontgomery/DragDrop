@@ -25,7 +25,16 @@ class List extends Component {
     !input ? this.setState({ input: true }) : this.setState({ input: false });
   };
 
-  apply;
+  // applyTransitions = () => {
+  //   const {pieces} = this.state
+  //   return pieces.map(piece => (
+  //     <CSSTransition key={Math.floor(Math.random() * Math.floor(100))} timeout={300} classNames="slide-transition">
+  //       <li key={todo.id}>
+  //         <ToDo value={todo.value} id={todo.id} deleteTodo={this.deleteTodo} />
+  //       </li>
+  //     </CSSTransition>
+  //   ));
+  // };
 
   renderNewInput = () => {
     const { input } = this.state;

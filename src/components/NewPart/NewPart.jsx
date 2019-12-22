@@ -10,7 +10,7 @@ class NewPart extends Component {
     super(props);
     this.state = {
       newPieceValue: "",
-      color: "red",
+      color: "(233, 53, 53)",
       selected: null,
       CheckMark: null
     };
