@@ -35,9 +35,8 @@ class NewPart extends Component {
     for (let i = 0; i < colorSelectors.length; i++) {
       if (target === colorSelectors[i]) {
         ReactDOM.render(<CheckMark></CheckMark>, colorSelectors[i]);
-        console.log(colorSelectors[i].children);
       } else {
-        colorSelectors[i].innerHTML = "";
+        ReactDOM.unmountComponentAtNode(colorSelectors[i]);
       }
     }
   };
