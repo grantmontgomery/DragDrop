@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Piece } from "../Piece";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { NewPart } from "../NewPart";
 import "./List.css";
 
@@ -24,10 +25,16 @@ class List extends Component {
     !input ? this.setState({ input: true }) : this.setState({ input: false });
   };
 
+  apply;
+
   renderNewInput = () => {
     const { input } = this.state;
     if (input) {
-      return <NewPart handleSubmit={this.handleSubmit}></NewPart>;
+      return (
+        <CSSTransition key="1" timeout={300} classNames="newpart-transition">
+          <NewPart key="1" handleSubmit={this.handleSubmit}></NewPart>
+        </CSSTransition>
+      );
     } else {
       return;
     }
@@ -41,7 +48,7 @@ class List extends Component {
           <span>Items</span>
           <button onClick={this.handleClick}>+</button>
         </div>
-        {this.renderNewInput()}
+        <TransitionGroup>{this.renderNewInput()}</TransitionGroup>
         {pieces.map(piece => (
           <Piece
             key={Math.floor(Math.random() * Math.floor(100))}
