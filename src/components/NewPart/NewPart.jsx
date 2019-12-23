@@ -9,17 +9,17 @@ class NewPart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newPieceValue: "",
+      newPieceValue: this.props.newPieceValue,
       color: "(233, 53, 53)",
       selected: null,
       CheckMark: null
     };
   }
 
-  handleUpdate = event => {
-    const { target } = event;
-    this.setState({ newPieceValue: target.value });
-  };
+  // handleUpdate = event => {
+  //   const { target } = event;
+  //   this.setState({ newPieceValue: target.value });
+  // };
 
   componentDidMount() {
     const colorSelectors = document.getElementsByClassName("color-picker");
@@ -44,8 +44,7 @@ class NewPart extends Component {
   };
 
   render() {
-    const { newPieceValue } = this.state;
-    const { handleSubmit } = this.props;
+    const { handleSubmit, newPieceValue, handleUpdate } = this.props;
     return (
       <div className="newpart-wrapper">
         <span>Add something!</span>
@@ -56,7 +55,7 @@ class NewPart extends Component {
             type="text"
             name="activity"
             value={newPieceValue}
-            onChange={this.handleUpdate}
+            onChange={handleUpdate}
           />
           <br />
           {/* <label htmlFor="" name="time">

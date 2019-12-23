@@ -9,14 +9,20 @@ class List extends Component {
     super(props);
     this.state = {
       input: false,
-      pieces: []
+      pieces: [],
+      newPieceValue: ""
     };
   }
 
   handleSubmit = (event, newPiece) => {
     const { pieces } = this.state;
     event.preventDefault();
-    this.setState({ pieces: [...pieces, newPiece] });
+    this.setState({ pieces: [...pieces, newPiece], newPieceValue: "" });
+  };
+
+  handleUpdate = event => {
+    const { target } = event;
+    this.setState({ newPieceValue: target.value });
   };
 
   handleClick = event => {
@@ -37,11 +43,16 @@ class List extends Component {
   // };
 
   renderNewInput = () => {
-    const { input } = this.state;
+    const { input, newPieceValue } = this.state;
     if (input) {
       return (
         <CSSTransition key="1" timeout={300} classNames="newpart-transition">
-          <NewPart key="1" handleSubmit={this.handleSubmit}></NewPart>
+          <NewPart
+            key="1"
+            newPieceValue={newPieceValue}
+            handleUpdate={this.handleUpdate}
+            handleSubmit={this.handleSubmit}
+          ></NewPart>
         </CSSTransition>
       );
     } else {
