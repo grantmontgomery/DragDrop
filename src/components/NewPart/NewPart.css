@@ -3,7 +3,8 @@
   margin-right: auto;
   margin-left: auto;
   height: 125px;
-  border: solid 1px black;
+  overflow-y: hidden;
+  box-shadow: 0 5px 6px 1px rgba(150, 150, 150, 0.5);
   overflow: hidden;
   z-index: 1001;
 }

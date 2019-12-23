@@ -78,6 +78,7 @@ class Piece extends Component {
         position: `${isMoving ? "absolute" : "relative"}`,
         zIndex: 1000,
         transition: "none",
+        boxShadow: "0 3px 6px 1px rgba(50, 50, 50, 0.5)",
         background: `rgb${color}`
       };
     } else {
