@@ -44,10 +44,18 @@ class NewPart extends Component {
   };
 
   render() {
-    const { handleSubmit, newPieceValue, handleUpdate } = this.props;
+    const {
+      handleSubmit,
+      newPieceValue,
+      handleUpdate,
+      handleClick
+    } = this.props;
     return (
       <div className="newpart-wrapper">
         <span>Add something!</span>
+        <button className="exit-button" onClick={handleClick}>
+          X
+        </button>
         <br />
         <form action="" onSubmit={e => handleSubmit(e, this.state)}>
           <label htmlFor="">What?</label>

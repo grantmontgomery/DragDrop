@@ -52,6 +52,7 @@ class List extends Component {
             newPieceValue={newPieceValue}
             handleUpdate={this.handleUpdate}
             handleSubmit={this.handleSubmit}
+            handleClick={this.handleClick}
           ></NewPart>
         </CSSTransition>
       );
