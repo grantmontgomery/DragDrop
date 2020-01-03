@@ -8,7 +8,8 @@ class App extends Component {
     super(props);
     this.state = {
       newPiece: { id: null, value: null, color: null },
-      pieces: []
+      pieces: [],
+      loadApp: false
     };
   }
 
@@ -17,7 +18,7 @@ class App extends Component {
     const { newPart, color } = thestate;
   };
 
-  render() {
+  renderFullApp = () => {
     return (
       <AppContext.Provider>
         <React.Fragment>
@@ -26,6 +27,10 @@ class App extends Component {
         </React.Fragment>
       </AppContext.Provider>
     );
+  };
+
+  render() {
+    return this.renderFullApp();
   }
 }
 
