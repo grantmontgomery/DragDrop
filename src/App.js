@@ -28,7 +28,8 @@ class App extends Component {
     this.setState({
       startDate: formatted,
       startHour: formatted.getHours(),
-      startMinutes: formatted.getMinutes()
+      startMinutes: formatted.getMinutes(),
+      startDay: formatted.getDate()
     });
   };
 
@@ -37,13 +38,24 @@ class App extends Component {
     this.setState({
       endDate: formatted,
       endHour: formatted.getHours(),
-      endMinutes: formatted.getMinutes()
+      endMinutes: formatted.getMinutes(),
+      endDay: formatted.getDate()
     });
   };
 
   handleSubmit = (event, thestate) => {
     event.preventDefault();
     const { newPart, color } = thestate;
+  };
+
+  renderSelectionOrApp = () => {
+    const { loadApp } = this.state;
+
+    if (loadApp) {
+      return this.renderFullApp();
+    } else {
+      return this.setHours();
+    }
   };
 
   renderFullApp = () => {
@@ -88,7 +100,8 @@ class App extends Component {
   render() {
     console.log(this.state);
     // return this.renderFullApp();
-    return this.setHours();
+    // return this.setHours();
+    return this.renderSelectionOrApp();
   }
 }
 
