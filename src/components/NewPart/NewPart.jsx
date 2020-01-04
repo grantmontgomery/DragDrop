@@ -42,7 +42,7 @@ class NewPart extends Component {
       }
     }
   };
-
+  
   render() {
     const {
       handleSubmit,

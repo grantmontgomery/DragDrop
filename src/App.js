@@ -16,7 +16,12 @@ class App extends Component {
     };
   }
 
-  submitDates = () => {};
+  submitDates = () => {
+    const { startDate, endDate } = this.state;
+    if (startDate !== "" && endDate !== "") {
+      this.setState({ loadApp: true });
+    }
+  };
 
   handleStartDateChange = (date, event) => {
     const formatted = new Date(date);
