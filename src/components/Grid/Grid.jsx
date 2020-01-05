@@ -3,8 +3,14 @@ import { Square } from "../Square";
 import "./Grid.css";
 
 class Grid extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      ...props
+    };
+  }
   render() {
+    console.log(this.state);
     return (
       <div className="grid-wrapper">
         <div className="grid-slider">

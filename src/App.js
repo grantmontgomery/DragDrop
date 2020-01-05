@@ -60,12 +60,10 @@ class App extends Component {
 
   renderFullApp = () => {
     return (
-      <AppContext.Provider value={this.state}>
-        <React.Fragment>
-          <List></List>
-          <Grid></Grid>
-        </React.Fragment>
-      </AppContext.Provider>
+      <React.Fragment>
+        <List></List>
+        <Grid {...this.state}></Grid>
+      </React.Fragment>
     );
   };
 
