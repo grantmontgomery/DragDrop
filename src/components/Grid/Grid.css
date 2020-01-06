@@ -27,7 +27,7 @@
 }
 
 .grid-slider {
-  width: 1600px;
+  /* width: 1600px; */
   height: 1000px;
   position: relative;
   display: grid;

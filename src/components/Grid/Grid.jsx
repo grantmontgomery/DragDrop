@@ -36,7 +36,13 @@ class Grid extends Component {
 
   gridSliderStyle = () => {
     const { hourDifference } = this.state;
-    return { width: `${(hourDifference + 1) * 200}px` };
+    const width = (hourDifference + 1) * 200;
+    const amountOfColumns = width / 100;
+    const gridColumnSize = 100 / amountOfColumns;
+    console.log(amountOfColumns);
+    console.log(gridColumnSize);
+    console.log(width);
+    return { width: `${width}px` };
   };
 
   render() {
