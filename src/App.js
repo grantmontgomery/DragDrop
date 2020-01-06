@@ -25,20 +25,28 @@ class App extends Component {
 
   handleStartDateChange = (date, event) => {
     const formatted = new Date(date);
+    let minutes = 0;
+    if (formatted.getMinutes() !== 0) {
+      minutes = 0.5;
+    }
     this.setState({
       startDate: formatted,
       startHour: formatted.getHours(),
-      startMinutes: formatted.getMinutes(),
+      startMinutes: minutes,
       startDay: formatted.getDate()
     });
   };
 
   handleEndDateChange = (date, event) => {
     const formatted = new Date(date);
+    let minutes = 0;
+    if (formatted.getMinutes() !== 0) {
+      minutes = 0.5;
+    }
     this.setState({
       endDate: formatted,
       endHour: formatted.getHours(),
-      endMinutes: formatted.getMinutes(),
+      endMinutes: minutes,
       endDay: formatted.getDate()
     });
   };
