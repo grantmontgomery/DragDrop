@@ -33,16 +33,32 @@ class Grid extends Component {
       this.setState({ hourDifference });
     }
   }
+  repeatString = (string, number) => {
+    let newString = "";
+    while (number > 0) {
+      newString += string;
+      number--;
+    }
+    return newString;
+  };
 
   gridSliderStyle = () => {
     const { hourDifference } = this.state;
     const width = (hourDifference + 1) * 200;
     const amountOfColumns = width / 100;
-    const gridColumnSize = 100 / amountOfColumns;
-    console.log(amountOfColumns);
-    console.log(gridColumnSize);
-    console.log(width);
-    return { width: `${width}px` };
+    const gridColumnSize = " 100px";
+    const squareStr = " square";
+    const headerStr = " header";
+    const rowStr = ` "${this.repeatString(squareStr, amountOfColumns)}"`;
+    const firstRow = `"${this.repeatString(headerStr, amountOfColumns)}"`;
+    return {
+      width: `${width}px`,
+      gridTemplateColumns: ` ${this.repeatString(
+        gridColumnSize,
+        amountOfColumns
+      )}`,
+      gridTemplateAreas: `${firstRow}${this.repeatString(rowStr, 7)}`
+    };
   };
 
   render() {
@@ -73,6 +89,7 @@ class Grid extends Component {
               <p>2:00am</p>
             </div>
           </div>
+          {/* <Square className="square"></Square>
           <Square className="square"></Square>
           <Square className="square"></Square>
           <Square className="square"></Square>
@@ -185,8 +202,7 @@ class Grid extends Component {
           <Square className="square"></Square>
           <Square className="square"></Square>
           <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
+          <Square className="square"></Square> */}
         </div>
       </div>
     );
