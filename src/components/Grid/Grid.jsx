@@ -60,9 +60,44 @@ class Grid extends Component {
       gridTemplateAreas: `${firstRow}${this.repeatString(rowStr, 7)}`
     };
   };
-
+  renderHoursSections() {
+    const { startHour, startDay, endDay, endHour } = this.props;
+    if (startDay !== endDay) {
+      const hours = [];
+      let startHoursCount = startHour;
+      if (startHoursCount === 24) {
+        let endHoursCount = 0;
+        while (endHoursCount < endHour) {
+          endHoursCount >= 12
+            ? hours.push(`${24 - endHoursCount}:00 p.m`)
+            : hours.push(`${endHoursCount}:00 a.m`);
+          endHoursCount++;
+        }
+      } else {
+        while (startHoursCount > 24) {
+          startHoursCount >= 12
+            ? hours.push(`${24 - startHoursCount}:00 p.m`)
+            : hours.push(`${startHoursCount}:00 a.m`);
+          startHoursCount++;
+        }
+      }
+      console.log(hours);
+    } else {
+      const hours = [];
+      let startHoursCount = startHour;
+      let endHoursCount = endHour;
+      while (startHoursCount > endHoursCount) {
+        startHoursCount >= 12
+          ? hours.push(`${24 - startHoursCount}:00 p.m`)
+          : hours.push(`${startHoursCount}:00 a.m`);
+        startHoursCount++;
+      }
+      console.log(hours);
+    }
+  }
   render() {
-    console.log(this.state);
+    console.log(this.renderHoursSections());
+
     return (
       <div className="grid-wrapper">
         <div className="grid-slider" style={this.gridSliderStyle()}>

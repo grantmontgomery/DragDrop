@@ -27,20 +27,10 @@
 }
 
 .grid-slider {
-  /* width: 1600px; */
   height: 1000px;
   position: relative;
   display: grid;
   grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
-  /* grid-template-areas:
-    "header header header header header header header header header header header header header header header header"
-    "square square square square square square square square square square square square square square square square"
-    "square square square square square square square square square square square square square square square square"
-    "square square square square square square square square square square square square square square square square"
-    "square square square square square square square square square square square square square square square square"
-    "square square square square square square square square square square square square square square square square"
-    "square square square square square square square square square square square square square square square square"
-    "square square square square square square square square square square square square square square square square"; */
   left: 0;
 }
 
