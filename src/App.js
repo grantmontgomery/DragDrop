@@ -17,9 +17,20 @@ class App extends Component {
   }
 
   submitDates = () => {
-    const { startDate, endDate } = this.state;
+    const {
+      startDate,
+      endDate,
+      startDay,
+      startHour,
+      endDay,
+      endHour
+    } = this.state;
+
     if (startDate !== "" && endDate !== "") {
+      // if(startDay < endDay){}
       this.setState({ loadApp: true });
+    } else {
+      alert("Must enter in a start and end date.");
     }
   };
 

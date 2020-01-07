@@ -61,43 +61,61 @@ class Grid extends Component {
     };
   };
   renderHoursSections() {
-    const { startHour, startDay, endDay, endHour } = this.props;
+    let { startHour, startDay, endDay, endHour } = this.props;
     if (startDay !== endDay) {
       const hours = [];
-      let startHoursCount = startHour;
-      if (startHoursCount === 24) {
-        let endHoursCount = 0;
-        while (endHoursCount < endHour) {
-          endHoursCount >= 12
-            ? hours.push(`${24 - endHoursCount}:00 p.m`)
-            : hours.push(`${endHoursCount}:00 a.m`);
-          endHoursCount++;
-        }
-      } else {
-        while (startHoursCount > 24) {
-          startHoursCount >= 12
-            ? hours.push(`${24 - startHoursCount}:00 p.m`)
-            : hours.push(`${startHoursCount}:00 a.m`);
-          startHoursCount++;
+      while (startHour < 24) {
+        if (startHour > 12) {
+          hours.push(`${startHour - 12}:00 p.m`);
+          startHour++;
+        } else if (startHour === 0) {
+          hours.push(`12:00 a.m`);
+          startHour++;
+        } else if (startHour === 12) {
+          hours.push(`12:00 p.m`);
+        } else {
+          hours.push(`${startHour}:00 a.m`);
+          startHour++;
         }
       }
-      console.log(hours);
+      let endHourCount = 0;
+      while (endHourCount <= endHour) {
+        if (endHourCount > 12) {
+          hours.push(`${endHourCount - 12}:00 p.m`);
+          endHourCount++;
+        } else if (endHourCount === 0) {
+          hours.push(`12:00 a.m`);
+          endHourCount++;
+        } else if (endHourCount === 12) {
+          hours.push(`12:00 p.m`);
+          endHourCount++;
+        } else {
+          hours.push(`${endHourCount}:00 a.m`);
+          endHourCount++;
+        }
+      }
+      return hours;
     } else {
       const hours = [];
-      let startHoursCount = startHour;
-      let endHoursCount = endHour;
-      while (startHoursCount > endHoursCount) {
-        startHoursCount >= 12
-          ? hours.push(`${24 - startHoursCount}:00 p.m`)
-          : hours.push(`${startHoursCount}:00 a.m`);
-        startHoursCount++;
+      while (startHour <= endHour) {
+        if (startHour > 12) {
+          hours.push(`${startHour - 12}:00 p.m`);
+          startHour++;
+        } else if (startHour === 0) {
+          hours.push(`12:00 a.m`);
+          startHour++;
+        } else if (startHour === 12) {
+          hours.push(`12:00 p.m`);
+        } else {
+          hours.push(`${startHour}:00 a.m`);
+          startHour++;
+        }
       }
-      console.log(hours);
+      return hours;
     }
   }
   render() {
     console.log(this.renderHoursSections());
-
     return (
       <div className="grid-wrapper">
         <div className="grid-slider" style={this.gridSliderStyle()}>
