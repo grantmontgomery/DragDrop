@@ -12,39 +12,39 @@ class Grid extends Component {
     };
   }
 
-  componentDidMount() {
-    const {
-      startHour,
-      startMinutes,
-      startDay,
-      endHour,
-      endMinutes,
-      endDay
-    } = this.props;
+  // componentDidMount() {
+  //   const {
+  //     startHour,
+  //     startMinutes,
+  //     startDay,
+  //     endHour,
+  //     endMinutes,
+  //     endDay
+  //   } = this.props;
 
-    if (endDay !== startDay) {
-      const dayDifference = endDay - startDay - 1;
-      const hourDifference =
-        24 -
-        (startHour + startMinutes) +
-        (endHour + endMinutes) +
-        dayDifference * 24;
-      const width = (hourDifference + 1) * 200;
-      const amountOfColumns = width / 100;
-      this.setState({
-        hourDifference,
-        numberOfSquares: amountOfColumns * 7
-      });
-    } else {
-      const hourDifference = endHour + endMinutes - (startHour + startMinutes);
-      const width = (hourDifference + 1) * 200;
-      const amountOfColumns = width / 100;
-      this.setState({
-        hourDifference,
-        numberOfSquares: amountOfColumns * 7
-      });
-    }
-  }
+  //   if (endDay !== startDay) {
+  //     const dayDifference = endDay - startDay - 1;
+  //     const hourDifference =
+  //       24 -
+  //       (startHour + startMinutes) +
+  //       (endHour + endMinutes) +
+  //       dayDifference * 24;
+  //     const width = (hourDifference + 1) * 200;
+  //     const amountOfColumns = width / 100;
+  //     this.setState({
+  //       hourDifference,
+  //       numberOfSquares: amountOfColumns * 7
+  //     });
+  //   } else {
+  //     const hourDifference = endHour + endMinutes - (startHour + startMinutes);
+  //     const width = (hourDifference + 1) * 200;
+  //     const amountOfColumns = width / 100;
+  //     this.setState({
+  //       hourDifference,
+  //       numberOfSquares: amountOfColumns * 7
+  //     });
+  //   }
+  // }
   repeatString = (string, number) => {
     let newString = "";
     while (number > 0) {
@@ -55,7 +55,7 @@ class Grid extends Component {
   };
 
   gridSliderStyle = () => {
-    const { hourDifference } = this.state;
+    const { hourDifference } = this.props;
     const width = (hourDifference + 1) * 200;
     const amountOfColumns = width / 100;
     const gridColumnSize = " 100px";
@@ -141,132 +141,14 @@ class Grid extends Component {
     }
   }
 
-  renderSquares = () => {
-    // const { numberOfSquares } = this.state;
-    this.state.numberOfSquares.map(() => {
-      return <Square className="square"></Square>;
-    });
-  };
   render() {
     return (
       <div className="grid-wrapper">
         <div className="grid-slider" style={this.gridSliderStyle()}>
           <div className="date-header">{this.renderHoursSections()}</div>
-          {this.renderSquares()}
-          {/* <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square>
-          <Square className="square"></Square> */}
+          {this.props.squares.map(square => (
+            <Square className="square" key={square}></Square>
+          ))}
         </div>
       </div>
     );
