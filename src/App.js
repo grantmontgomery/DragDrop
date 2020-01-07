@@ -22,13 +22,30 @@ class App extends Component {
       endDate,
       startDay,
       startHour,
+      startMinutes,
+      endMinutes,
       endDay,
       endHour
     } = this.state;
 
     if (startDate !== "" && endDate !== "") {
-      // if(startDay < endDay){}
-      this.setState({ loadApp: true });
+      if (startDay > endDay) {
+        alert("Set start date to a day before or day of.");
+      } else if (startDay === endDay) {
+        if (startHour > endHour) {
+          alert("Switch times.");
+        } else if (startHour === endHour) {
+          if (startMinutes > endMinutes) {
+            alert("Switch times.");
+          } else {
+            this.setState({ loadApp: true });
+          }
+        } else {
+          this.setState({ loadApp: true });
+        }
+      } else {
+        this.setState({ loadApp: true });
+      }
     } else {
       alert("Must enter in a start and end date.");
     }

@@ -7,7 +7,8 @@ class Grid extends Component {
     super(props);
     this.state = {
       ...props,
-      gridWrapperWidth: 0
+      gridWrapperWidth: 0,
+      renderSquares: false
     };
   }
 
@@ -20,6 +21,7 @@ class Grid extends Component {
       endMinutes,
       endDay
     } = this.props;
+
     if (endDay !== startDay) {
       const dayDifference = endDay - startDay - 1;
       const hourDifference =
@@ -27,10 +29,20 @@ class Grid extends Component {
         (startHour + startMinutes) +
         (endHour + endMinutes) +
         dayDifference * 24;
-      this.setState({ hourDifference });
+      const width = (hourDifference + 1) * 200;
+      const amountOfColumns = width / 100;
+      this.setState({
+        hourDifference,
+        numberOfSquares: amountOfColumns * 7
+      });
     } else {
       const hourDifference = endHour + endMinutes - (startHour + startMinutes);
-      this.setState({ hourDifference });
+      const width = (hourDifference + 1) * 200;
+      const amountOfColumns = width / 100;
+      this.setState({
+        hourDifference,
+        numberOfSquares: amountOfColumns * 7
+      });
     }
   }
   repeatString = (string, number) => {
@@ -60,6 +72,7 @@ class Grid extends Component {
       gridTemplateAreas: `${firstRow}${this.repeatString(rowStr, 7)}`
     };
   };
+
   renderHoursSections() {
     let { startHour, startDay, endDay, endHour } = this.props;
     if (startDay !== endDay) {
@@ -94,7 +107,14 @@ class Grid extends Component {
           endHourCount++;
         }
       }
-      return hours;
+
+      return hours.map(hour => {
+        return (
+          <div className="hours-wrapper">
+            <p>{hour}</p>
+          </div>
+        );
+      });
     } else {
       const hours = [];
       while (startHour <= endHour) {
@@ -111,37 +131,28 @@ class Grid extends Component {
           startHour++;
         }
       }
-      return hours;
+      return hours.map(hour => {
+        return (
+          <div className="hours-wrapper">
+            <p>{hour}</p>
+          </div>
+        );
+      });
     }
   }
+
+  renderSquares = () => {
+    // const { numberOfSquares } = this.state;
+    this.state.numberOfSquares.map(() => {
+      return <Square className="square"></Square>;
+    });
+  };
   render() {
-    console.log(this.renderHoursSections());
     return (
       <div className="grid-wrapper">
         <div className="grid-slider" style={this.gridSliderStyle()}>
-          <div className="date-header">
-            <div className="hours-wrapper">
-              <p>8:00pm</p>
-            </div>
-            <div className="hours-wrapper">
-              <p>9:00pm</p>
-            </div>
-            <div className="hours-wrapper">
-              <p>10:00pm</p>
-            </div>
-            <div className="hours-wrapper">
-              <p>11:00pm</p>
-            </div>
-            <div className="hours-wrapper">
-              <p>12:00pm</p>
-            </div>
-            <div className="hours-wrapper">
-              <p>1:00am</p>
-            </div>
-            <div className="hours-wrapper">
-              <p>2:00am</p>
-            </div>
-          </div>
+          <div className="date-header">{this.renderHoursSections()}</div>
+          {this.renderSquares()}
           {/* <Square className="square"></Square>
           <Square className="square"></Square>
           <Square className="square"></Square>
