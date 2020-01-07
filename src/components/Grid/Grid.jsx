@@ -133,7 +133,7 @@ class Grid extends Component {
       }
       return hours.map(hour => {
         return (
-          <div className="hours-wrapper">
+          <div className="hours-wrapper" style={{ width: "200px" }}>
             <p>{hour}</p>
           </div>
         );

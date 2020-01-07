@@ -61,7 +61,23 @@ class App extends Component {
           if (startMinutes > endMinutes) {
             alert("Switch times.");
           } else {
-            this.setState({ loadApp: true });
+            const hourDifference =
+              endHour + endMinutes - (startHour + startMinutes);
+            const width = (hourDifference + 1) * 200;
+            const amountOfColumns = width / 100;
+            const numberOfSquares = amountOfColumns * 7;
+            const squares = [];
+            let count = 0;
+            while (count < numberOfSquares) {
+              squares.push(count);
+              count++;
+            }
+
+            this.setState({
+              hourDifference,
+              squares,
+              loadApp: true
+            });
           }
         } else {
           const hourDifference =

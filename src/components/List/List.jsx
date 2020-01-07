@@ -64,7 +64,7 @@ class List extends Component {
   render() {
     const { pieces } = this.state;
     return (
-      <div className="list-wrapper">
+      <div id="list-wrapper">
         <div className="list-title">
           <span>Items</span>
           <button onClick={this.handleClick}>+</button>

@@ -54,7 +54,12 @@ class Piece extends Component {
     const { droppable, draggingElement } = this.state;
     window.removeEventListener("mousemove", this.handleMouseMove);
     window.removeEventListener("mouseup", this.handleMouseUp);
-    droppable.append(draggingElement);
+    if (droppable.className !== "square-wrapper" || droppable === null) {
+      const list = document.getElementById("list-wrapper");
+      list.append(draggingElement);
+    } else {
+      droppable.append(draggingElement);
+    }
     this.setState({
       translateX: 0,
       isMoving: false,
