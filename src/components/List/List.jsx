@@ -2,7 +2,29 @@ import React, { Component } from "react";
 import { Piece } from "../Piece";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { NewPart } from "../NewPart";
+import { useSelector } from "react-redux";
 import "./List.css";
+
+// const List = props => {
+//   let [input] = useState("");
+
+//   return (
+//     <div id="list-wrapper">
+//       <div className="list-title">
+//         <span>Items</span>
+//         <button onClick={this.handleClick}>+</button>
+//       </div>
+//       <TransitionGroup>{this.renderNewInput()}</TransitionGroup>
+//       {pieces.map(piece => (
+//         <Piece
+//           key={Math.floor(Math.random() * Math.floor(100))}
+//           color={piece.color}
+//           value={piece.newPieceValue}
+//         ></Piece>
+//       ))}
+//     </div>
+//   );
+// };
 
 class List extends Component {
   constructor(props) {
