@@ -26,11 +26,16 @@ class Piece extends Component {
   handleMouseDown = ({ target, clientX, clientY }) => {
     window.addEventListener("mousemove", this.handleMouseMove);
     window.addEventListener("mouseup", this.handleMouseUp);
+    target.hidden = true;
+    const elemBelow = document.elementFromPoint(clientX, clientY);
+    target.hidden = false;
+
     this.setState({
       isDragging: true,
       originalX: clientX,
       originalY: clientY,
-      draggingElement: target
+      draggingElement: target,
+      droppable: elemBelow
     });
   };
 
@@ -40,7 +45,6 @@ class Piece extends Component {
 
     if (isDragging) {
       draggingElement.hidden = true;
-      console.log(document.elementFromPoint(clientX, clientY));
       const elemBelow = document.elementFromPoint(clientX, clientY);
       draggingElement.hidden = false;
       this.setState(prevState => ({
