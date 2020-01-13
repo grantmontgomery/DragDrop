@@ -40,6 +40,7 @@ class Piece extends Component {
 
     if (isDragging) {
       draggingElement.hidden = true;
+      console.log(document.elementFromPoint(clientX, clientY));
       const elemBelow = document.elementFromPoint(clientX, clientY);
       draggingElement.hidden = false;
       this.setState(prevState => ({
